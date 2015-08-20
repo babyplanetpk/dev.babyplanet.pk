@@ -1,0 +1,28 @@
+<config>
+	<modules>
+			<BabyPlanet_ExportOrders>
+				<version>0.1.0</version>
+			</BabyPlanet_ExportOrders>
+	</modules>
+	
+	<frontend>
+		<routers>
+			<exportorders>
+				<use>standard</use>
+				<args>
+					<module>BabyPlanet_ExportOrders</module>
+					<frontName>exportorders</frontName>
+				</args>
+			</exportorders>
+		</routers>
+		
+		<layout>
+            <updates>
+                <exportorders>
+                    <file>exportorders.xml</file>
+                </exportorders>
+            </updates>
+        </layout>
+	</frontend>
+	
+</config>

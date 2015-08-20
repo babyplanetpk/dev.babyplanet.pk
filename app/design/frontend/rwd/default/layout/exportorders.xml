@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+
+    <exportorders_index_index translate="label">
+        <reference name="root">
+            <action method="setTemplate"><template>exportorders/exportorders.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <block type="core/template" name="exportorders.index" template="exportorders/exportorders.phtml" />
+        </reference>
+    </exportorders_index_index>
+
+    <exportorders_index_exportorders translate="label">
+        <reference name="root">
+            <action method="setTemplate"><template>exportorders/exportorders.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <block type="core/template" name="exportorders.index" template="exportorders/exportorders.phtml" />
+        </reference>
+    </exportorders_index_exportorders>
+
+    <exportorders_index_exportselectedorders translate="label">
+        <reference name="root">
+            <action method="setTemplate"><template>exportorders/exportorders.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <block type="core/template" name="exportorders.index" template="exportorders/exportorders.phtml" />
+        </reference>
+    </exportorders_index_exportselectedorders>
+
+</layout>

@@ -1,0 +1,57 @@
+<style>
+
+	
+
+</style>
+
+<?php
+
+	$parameter = Mage::getSingleton('core/session')->getParameter();
+	
+	if($parameter == 'first') {
+		?>
+            <form id='contactForm' method='post' action='/babyplanet/index.php/exportorders/index/exportOrders'>
+            
+                <input type="date" name="from" min="2014-01-01" max="<?php echo date('Y-m-d'); ?>">
+                <input type="date" name="to" min="2014-01-01" max="<?php echo date('Y-m-d'); ?>">
+                <select id="status" name="status">
+                	<option value="pending">Pending</option>
+                	<option value="process">Process</option>
+                	<option value="both">Both</option>
+                	<option value="all">All</option>
+                </select>
+                
+                <button type="submit">Check Value</button>
+            
+            </form>
+		<?php
+	} elseif ($parameter == 'second') {
+		
+		$orderIds = Mage::registry('orderIds');
+		
+		?>
+        <form id='contactForm' method='post' action='/babyplanet/index.php/exportorders/index/exportSelectedOrders'><?php
+		$count = 1;
+		foreach ($orderIds as $orderId) {
+		?>
+        	<div class="item">
+            	<label for="a-<?php echo $count ?>"><?php echo $orderId ?></label>
+            	<input type="checkbox" name="id[]" id="a-<?php echo $count++ ?>" value="<?php echo $orderId ?>" />
+            </div>
+		<?php
+		}
+		?>
+        
+            <select id="brand" name="brand">
+                <option value="Graco">Graco</option>
+                <option value="Chicco">Chicco</option>
+            </select>
+            <button type="submit">Check Value</button>
+        </form>
+		<?php
+	} else {
+		
+	}
+
+	Mage::getSingleton('core/session')->unsParameter();
+?>

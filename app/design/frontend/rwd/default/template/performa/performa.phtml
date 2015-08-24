@@ -1,0 +1,68 @@
+<style>
+
+#buttons {
+  padding-top: 10px;  text-align: center;
+}
+.btn {
+  border-radius: 10px;  padding: 1px 5px;  font-size: 17px;  text-decoration: none;
+  margin: 5px;  color: #fff;  position: relative;  display: inline-block;
+}
+.btn:active {
+  transform: translate(0px, 5px);
+  -webkit-transform: translate(0px, 5px);
+  box-shadow: 0px 1px 0px 0px;
+}
+.blue {
+  background-color: #55acee;  box-shadow: 0px 5px 0px 0px #3C93D5;
+}
+.blue:hover {
+  background-color: #6FC6FF;
+}	
+</style>
+
+<?php
+
+	$parameter = Mage::getSingleton('core/session')->getParameter();
+	
+	if($parameter == 'first') {
+		?>
+            <form id='contactForm' method='post' action='/babyplanet.pk/index.php/performa/index/performa'>
+            
+                <input type="date" name="from" min="2014-01-01" max="<?php echo date('Y-m-d'); ?>">
+                <input type="date" name="to" min="2014-01-01" max="<?php echo date('Y-m-d'); ?>">
+                <select id="status" name="status" class="blue">
+                	<option value="pending">Pending</option>
+                	<option value="process">Process</option>
+                	<option value="both">Both</option>
+                	<option value="all">All</option>
+                </select>
+                
+                <button type="submit" class="btn blue">Next </button>
+            
+            </form>
+		<?php
+	} elseif ($parameter == 'second') {
+		
+		$orderIds = Mage::registry('orderIds');
+		
+		?>
+        <form id='contactForm' method='post' action='/babyplanet.pk/index.php/performa/index/performaSelectedOrders'><?php
+		$count = 1;
+		foreach ($orderIds as $orderId) {
+		?>
+        	<div class="item">
+            	<label for="a-<?php echo $count ?>"><?php echo $orderId ?></label>
+            	<input type="checkbox" name="id[]" id="a-<?php echo $count++ ?>" value="<?php echo $orderId ?>" />
+            </div>
+		<?php
+		}
+		?>
+            <button type="submit" class="btn blue">Book Packets</button>
+        </form>
+		<?php
+	} else {
+		
+	}
+
+	Mage::getSingleton('core/session')->unsParameter();
+?>

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+
+    <performa_index_index translate="label">
+        <reference name="root">
+            <action method="setTemplate"><template>performa/performa.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <block type="core/template" name="performa.index" template="performa/performa.phtml" />
+        </reference>
+    </performa_index_index>
+
+    <performa_index_performa translate="label">
+        <reference name="root">
+            <action method="setTemplate"><template>performa/performa.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <block type="core/template" name="exportorders.index" template="performa/performa.phtml" />
+        </reference>
+    </performa_index_performa>
+
+    <performa_index_performaselectedorders translate="label">
+        <reference name="root">
+            <action method="setTemplate"><template>performa/performa.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <block type="core/template" name="performa.index" template="performa/performa.phtml" />
+        </reference>
+    </performa_index_performaselectedorders>
+
+</layout>

@@ -1,18 +1,28 @@
 <config>
 	<modules>
-		<BabyPlanet_Performa>
-			<version>1.0.0</version>
-		</BabyPlanet_Performa>
+			<BabyPlanet_Performa>
+				<version>0.1.0</version>
+			</BabyPlanet_Performa>
 	</modules>
+	
 	<frontend>
 		<routers>
 			<performa>
 					<use>standard</use>
-					<arg>
+					<args>
 						<module>BabyPlanet_Performa</module>
 						<frontName>performa</frontName>
-					</arg>
+					</args>
 			</performa>
 		</routers>
+		
+		<layout>
+            <updates>
+                <performa>
+                    <file>performa.xml</file>
+                </performa>
+            </updates>
+        </layout>
 	</frontend>
+	
 </config>

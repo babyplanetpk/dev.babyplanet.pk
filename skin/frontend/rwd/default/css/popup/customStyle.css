@@ -1,0 +1,119 @@
+
+<style>
+* {margin:0; padding:0;}
+.clear {display:block; clear:both;}
+.pupup-custom-popup-container { z-index:150; display:inline-block; background-color:rgba(0, 0, 0, 0.7); height:100%; left:0; position:fixed; top:0; width:100%;}
+.pupup-custom-popup { position:fixed; display:inline-block; margin:0 auto;  background-repeat:no-repeat; background-color:#ffffff; background-image:url("http://localhost/babyplanet.pk/skin/frontend/rwd/default/images/popup/background.png"); width:58%; min-height:500px; top:7%; left:20%;}
+/*   background-image:url("<?php echo $this->getSkinUrl('images/popup/background.png'); ?>");      */
+.pupup-logo {margin-left:5%; margin-top:1%;}
+.pupup-hrr {margin-left:5%; margin-top:1%;}
+.pupup-welcome { position:absolute; opacity:1; margin-left:35%; margin-top:-4%; font-family:'Myriad Pro'; font-size:22px; color:#737373;}
+.pupup-cancel {border:2px solid; border-radius:12px; color:black; cursor:pointer; display:block; font-family:sans-serif; padding: 0 5px; position:absolute; right:3px; top:3px;}
+.pupup-left-side { opacity:1; position:relative; float:left; width:58%;}
+.pupup-offer-title { margin-left:10%; margin-top:3%; float:left; font-family:'Myriad Pro'; font-size:24px; color:#f16623;}
+.pupup-offers { margin-left: 10%; margin-top: 14%;}
+.pupup-offer { text-transform: none; margin-top:2%; font-family:Open Sans; font-style:normal; font-variant:normal; font-weight:400; line-height:20px; font-size:12px; color:#464444;}
+.pupup-offer-dob { text-transform: none; margin-top:13px; margin-bottom:3px; font-family:Open Sans; font-style:normal; font-variant:normal; font-weight:400; line-height:1px; font-size:12px; color:#464444;}
+.pupup-mid-side { box-sizing:unset; width:2px; opacity:1; position:relative; float:left; padding:2px;}
+.pupup-right-side { margin-top:1%; position:relative; float:left; width:40%;}
+.pupup-field { max-height:25px; width:85% !important; height:28px; border-radius:3px; border:1px solid #cfcfcf; font-size:12px; padding:6px; margin:5px;}
+.pupup-field-dob { max-height:25px; float:left; width:120px !important; }
+.pupup-submit { color:#FFF; border-radius:5px; border:1px solid #CD5E29; background-color:#FD7432; margin:5px; padding:3px 20px; font-size:inherit; cursor:pointer;}
+.pupup-submit:active { background-color:#CD5E29;}
+.pupup-gender { display: inline-block; float: left; margin: 4px 5px;}
+.pupup-li-style { background-color:#9ecf5e; border:1px solid #80a84c; color:#fff; cursor:pointer; display:inline; float:left; font-size:10px; padding: 4px 5px; text-transform: uppercase;}
+.pupup-boy { border-radius: 4px 0 0 4px;}
+.pupup-background-color { background-color: #80A84C !important;}
+.pupup-girl { border-radius: 0 4px 4px 0;}
+.pupup-calender { display: block; float: left; margin: 6px;}
+input.via { float:left; font-family:serif; margin:5px 2px 0 5px;}
+
+
+
+@media only screen and (min-width : 1200px){
+  .pupup-custom-popup { min-height:500px; }
+  .pupup-welcome { opacity:1; }
+ 
+}
+@media only screen and (min-width : 992px) {
+
+}
+@media only screen and (min-width : 768px) {
+
+}
+@media only screen and (min-width : 992px) and (max-width : 1199px) {
+  .pupup-custom-popup { min-height:330px; max-height:350px; background-image:none;   }
+  .pupup-welcome { opacity:0; width:0px;}
+  .pupup-logo { margin-left: 200px; margin-top: 20px; }
+  .pupup-hrr { margin-top:1%;}
+  .pupup-left-side { width:0px; opacity:0; }
+  .pupup-mid-side { width:0px; opacity:0; }
+  .pupup-right-side { width:100%; }
+  .pupup-field { margin-left:40px; }
+  .pupup-field-dob{ width:370px !important; }
+  .pupup-offer-dob { margin-left:6%; }
+  .pupup-submit { margin-left:240px; }
+}
+
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+  .pupup-custom-popup { min-height:330px; max-height:350px; background-image:none;   }
+  .pupup-welcome { opacity:0; width:0px;}
+  .pupup-logo { margin-left: 130px; margin-top: 20px; }
+  .pupup-hrr { margin-top:1%;}
+  .pupup-left-side { width:0px; opacity:0; }
+  .pupup-mid-side { width:0px; opacity:0; }
+  .pupup-right-side { width:100%; }
+  .pupup-field { margin-left:30px; }
+  .pupup-field-dob{ width:250px !important; }
+  .pupup-offer-dob { margin-left:5%; }
+  .pupup-submit { margin-left:160px; }
+}
+@media only screen and (max-width : 1199px) {
+
+}
+@media only screen and (max-width : 991px) {
+
+}
+@media only screen and (max-width : 767px) {
+  .pupup-custom-popup { top:4%; min-height:320px; max-height:330px; background-image:none;   }
+  .pupup-welcome { opacity:0; width:0px;}
+  .pupup-logo { margin-left:90px; margin-top: 20px; }
+  .pupup-hrr { margin-top:-40;}
+  .pupup-left-side { width:0px; opacity:0; }
+  .pupup-mid-side { width:0px; opacity:0; }
+  .pupup-right-side { width:100%; }
+  .pupup-field { margin-left:30px; }
+  .pupup-field-dob{ width:190px !important; }
+  .pupup-offer-dob { margin-left:6%; }
+  .pupup-submit { margin-left:130px; }
+}
+
+@media only screen and (max-width : 639px) {
+  .pupup-custom-popup { top:2%; min-height:350px; max-height:315px; }
+  .pupup-logo { margin-left:51px; margin-top: 7px; }
+  .pupup-hrr { margin-top:-45;}
+  .pupup-field { margin-left:20px; }
+  .pupup-field-dob{ width:115px !important; }
+  .pupup-offer-dob { margin-left:5%; }
+  .pupup-submit { margin-left:90px; }
+}
+@media only screen and (max-width : 479px) {
+  .pupup-logo { margin-left:15px; margin-top: 20px; }
+  .pupup-field { margin-left:15px; }
+  .pupup-field-dob{ width:140px !important; }
+  .pupup-gender { margin-left:65px; }
+  .pupup-offer-dob { margin-left:4%; }
+  .pupup-submit { margin-left:50px; }
+}
+@media only screen and (max-width : 359px) {
+  .pupup-custom-popup { top:2%; min-height:320px; max-height:340px; }
+  .pupup-logo { margin-left:3px; margin-top: 5px; }
+  .pupup-hrr { margin-top:-70;}
+  .pupup-field { margin-left:12px; }
+  .pupup-field-dob { width:130px !important; }
+  .pupup-offer-dob { margin-left:2%; }
+  .pupup-gender { margin-left:55px; }
+  .pupup-submit { margin-left:43px; }
+}
+
+</style>

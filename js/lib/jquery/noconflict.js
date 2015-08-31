@@ -25,3 +25,83 @@
 
 // Avoid PrototypeJS conflicts, assign jQuery to $j instead of $
 var $j = jQuery.noConflict();
+
+// A $( document ).ready() block.
+$j( document ).ready(function() {
+    //alert( "ready!" );
+    popup('signup');
+});
+
+function popup(myarg) {
+	
+
+	//var htmlString = $j( this ).html();
+	//var popupString = $j.post('http://localhost/babyplanet.pk/index.php/popup')
+  	//$j( this ).html( popupString );
+  	
+  	if(!checkCookie( myarg ) ) {
+  		var link = "http://localhost/babyplanet.pk/index.php/popbox/index/index/which/" + myarg;
+		var msg = $j.ajax({type: "POST", url: link, async: false}).responseText;
+		$j("#popup-container").html( msg );
+		//window.location.hash = '#custom-popup-window';
+		//document.getElementById('custom-popup-window').scrollIntoView();
+	}
+
+}
+
+//Closing Popup on outside click
+$j(document).mouseup(function (e)
+		{
+		    var container = $j("#popup-container");
+
+		    if (!container.is(e.target) // if the target of the click isn't the container...
+		        && container.has(e.target).length === 0) // ... nor a descendant of the container
+		    {
+		        //container.hide();
+		        popupClear();
+		    }
+		});
+
+function popupClear() {
+	
+    $j("#popup-container").html(" ");
+}
+
+//----------- Cookies Functions ------------
+function setCookie( cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime( d.getTime() + ( exdays*24*60*60*1000 ) );
+    var expires = "expires=" + d.toGMTString();
+    document.cookie = cname+"="+cvalue+"; "+expires;
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0 ; i < ca.length ; i++ ) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function checkCookie( which ) {
+    var popup = getCookie("BabyPlanet_Cookie");
+    if (popup != "") {
+        //alert("Welcome again " + popup);
+        return false;
+    } else {
+       popup = which;
+       if (popup != "" && popup != null) {
+           setCookie("BabyPlanet_Cookie", popup, 30);
+           return false;
+       }
+    }
+}
+
+//	$("#popup-cancel").click(function(){
+//    $("#popup-div").html(" ");
+//	}); 

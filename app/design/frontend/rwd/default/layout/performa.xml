@@ -15,7 +15,7 @@
             <action method="setTemplate"><template>performa/performa.phtml</template></action>
         </reference>
         <reference name="content">
-            <block type="core/template" name="exportorders.index" template="performa/performa.phtml" />
+            <block type="core/template" name="performa.index" template="performa/performa.phtml" />
         </reference>
     </performa_index_performa>
 

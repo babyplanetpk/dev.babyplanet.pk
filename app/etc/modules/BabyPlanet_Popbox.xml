@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <BabyPlanet_Popbox>
+            <active>true</active>
+            <codePool>local</codePool>
+        </BabyPlanet_Popbox>
+    </modules>
+</config>

@@ -1,0 +1,160 @@
+<?php
+
+	$parameter = Mage::getSingleton('core/session')->getParameter();
+	
+	if($parameter == 'first') {
+		?>
+
+           <form id='contactForm' method='post' action='<?php echo Mage::helper("adminhtml")->getUrl("*/*/brandcsv")?>'>
+
+				<input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
+				<input type="date" name="from" min="2014-01-01" max="<?php echo date('Y-m-d'); ?>">
+                <input type="date" name="to" min="2014-01-01" max="<?php echo date('Y-m-d'); ?>">
+                <select id="status" name="status">
+                	<option value="pending">Pending</option>
+                	<option value="process">Process</option>
+                	<option value="both">Both</option>
+                	<option value="all">All</option>
+                </select>
+                
+                <button type="submit">Check Value</button>
+                
+           </form>
+
+		<?php
+
+	} elseif ($parameter == 'second') {
+		
+		$orderIds = Mage::registry('orderIds');
+		
+		?>
+        <form id='contactForm' method='post' action='<?php echo Mage::helper("adminhtml")->getUrl("brandcsv/bybrand/brandcsvSelectedOrders"); ?> '>
+            <div class="item">
+                <label for="checkall">Check All</label>
+                <input type="checkbox" onchange="checkAll(this)" name="chk[]" />
+            </div>
+        <?php
+		$count = 1;
+		foreach ($orderIds as $orderId) {
+		?>
+        	<div class="item">
+            	<label for="a-<?php echo $count ?>"><?php echo $orderId ?></label>
+            	<input type="checkbox" name="id[]" class="check" id="a-<?php echo $count++ ?>" value="<?php echo $orderId ?>" />
+            </div>
+		<?php
+		}
+		?>
+        
+            <select id="brand" name="brand">
+				<!--<option value="ABC">ABC</option>
+				<option value="Aptamil">Aptamil</option>
+				<option value="Artisan">Artisan</option>
+				<option value="Asset">Asset</option>
+				<option value="Avent">Avent</option>
+				<option value="Babi Mild">Babi Mild</option>
+                <option value="Baby Kingdom">Baby Kingdom</option>
+				<option value="Baby Master">Baby Master</option>
+				<option value="Baby Trend">Baby Trend</option>
+				<option value="Bambies">Bambies</option>
+				<option value="BanBao">BanBao</option>
+				<option value="Beech Nut">Beech Nut</option>
+				<option value="Brevi">Brevi</option>
+				<option value="Bright Starts">Bright Starts</option>
+				<option value="Canbebe">Canbebe</option>
+				<option value="Carters">Carters</option>
+				<option value="Carter">Carter</option>
+				<option value="Chicco">Chicco</option>
+				<option value="Cow Gate">Cow Gate</option>
+				<option value="Cussons">Cussons</option>
+				<option value="Dar us Salam">Dar us Salam</option>
+				<option value="Dessata">Dessata</option>
+				<option value="Diapy">Diapy</option>
+				<option value="Disney">Disney</option>
+				<option value="Enfamil">Enfamil</option>
+				<option value="Evenflo">Evenflo</option>
+				<option value="Farlin">Farlin</option>
+				<option value="First Step">First Step</option>
+				<option value="George Baby">George Baby</option>
+				<option value="Gerber">Gerber</option>
+				<option value="Graco">Graco</option>
+				<option value="Happi Nappi">Happi Nappi</option>
+				<option value="Hanias">Hanias</option>
+				<option value="Heinz">Heinz</option>
+				<option value="Huggies">Huggies</option>
+				<option value="Intex">Intex</option>
+				<option value="Johnson's">Johnson's</option>
+				<option value="Lego">Lego</option>
+				<option value="Little Tikes">Little Tikes</option>
+				<option value="Luvable Friends">Luvable Friends</option>
+				<option value="Mastela">Mastela</option>
+				<option value="Meiji">Meiji</option>
+				<option value="Montaly">Montaly</option>
+				<option value="Morinaga">Morinaga</option>
+				<option value="Mother Care">Mother Care</option>
+				<option value="Mushrooms">Mushrooms</option>
+				<option value="Mustela">Mustela</option>
+				<option value="Nestle">Nestle</option>
+				<option value="Pamper">Pamper</option>
+				<option value="Pigeon">Pigeon</option>
+				<option value="Pinks 'N' Blues">Pinks 'N' Blues</option>
+				<option value="Pur">Pur</option>
+				<option value="PUR">PUR</option>
+				<option value="Similac">Similac</option>
+				<option value="SudoCrem">SudoCrem</option>
+				<option value="Sundelight">Sundelight</option>
+				<option value="Shield">Shield</option>
+				<option value="Step 2">Step 2</option>
+				<option value="Tarkimo Toys">Tarkimo Toys</option>
+				<option value="Tinnies">Tinnies</option>
+				<option value="Tommee Tippee">Tommee Tippee</option>
+				<option value="Vtech">Vtech</option>
+				<option value="WinFun">WinFun</option>
+				<option value="Xingua">Xingua</option>-->
+
+		 		<option value="Asset">Asset</option>
+				<option value="Avent">Avent</option>
+				<option value="BanBao">BanBao</option>
+				<option value="Customized Rompers">Customized Rompers</option>
+                <option value="Dessata">Dessata</option>
+                <option value="Johnsons">Johnsons</option>
+                <option value="Karachi">Karachi</option>
+                <option value="Little Tikes">Little Tikes</option>
+                <option value="Mushrooms">Mushrooms</option>
+                <option value="Mustela">Mustela</option>
+                <option value="Nuby">Nuby</option>
+                <option value="Omron">Omron</option>
+                <option value="Perfumes">Perfumes</option>
+                <option value="Pur">Pur</option>
+                <option value="Shah Alam">Shah Alam</option>
+                <option value="Urdu Bazar">Urdu Bazar</option>
+                <option value="WinFun">WinFun</option>
+                <option value="Zubaidas Mother Shop">Zubaidas Mother Shop</option>
+                <option value="Zubaidas Online">Zubaidas Online</option>
+            </select>
+            <button type="submit">Check Value</button>
+        </form>
+		<?php
+	}
+
+	Mage::getSingleton('core/session')->unsParameter();
+?>
+
+<script language="JavaScript">
+function checkAll(ele) {
+     var checkboxes = document.getElementsByTagName('input');
+     if (ele.checked) {
+         for (var i = 0; i < checkboxes.length; i++) {
+             if (checkboxes[i].type == 'checkbox') {
+                 checkboxes[i].checked = true;
+             }
+         }
+     } else {
+         for (var i = 0; i < checkboxes.length; i++) {
+             console.log(i)
+             if (checkboxes[i].type == 'checkbox') {
+                 checkboxes[i].checked = false;
+             }
+         }
+     }
+ }
+</script>

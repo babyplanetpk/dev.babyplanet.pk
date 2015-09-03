@@ -1,0 +1,74 @@
+<?php
+
+	$parameter = Mage::getSingleton('core/session')->getParameter();
+	
+	if($parameter == 'first') {
+		?>
+            <form id='contactForm' method='post' action='<?php echo Mage::helper("adminhtml")->getUrl("*/*/brandcsv")?>'>
+
+				<input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
+				<input type="date" name="from" min="2014-01-01" max="<?php echo date('Y-m-d'); ?>">
+                <input type="date" name="to" min="2014-01-01" max="<?php echo date('Y-m-d'); ?>">
+                <select id="status" name="status">
+                	<option value="pending">Pending</option>
+                	<option value="process">Process</option>
+                	<option value="both">Both</option>
+                	<option value="all">All</option>
+                </select>
+                
+                <button type="submit">Check Value</button>
+            
+            </form>
+
+		<?php
+
+	} elseif ($parameter == 'second') {
+		
+		$orderIds = Mage::registry('orderIds');
+		
+		?>
+        <form id='contactForm' method='post' action='<?php echo Mage::helper("adminhtml")->getUrl("brandcsv/general/brandcsvSelectedOrders")?>'>
+            <div class="item">
+                <label for="checkall">Check All</label>
+                <input type="checkbox" onchange="checkAll(this)" name="chk[]" />
+            </div>
+        <?php
+		$count = 1;
+		foreach ($orderIds as $orderId) {
+		?>
+        	<div class="item">
+            	<label for="a-<?php echo $count ?>"><?php echo $orderId ?></label>
+            	<input type="checkbox" name="id[]" class="check" id="a-<?php echo $count++ ?>" value="<?php echo $orderId ?>" />
+            </div>
+		<?php
+		}
+		?>
+            <button type="submit">Check Value</button>
+        </form>
+		<?php
+	} else {
+		
+	}
+
+	Mage::getSingleton('core/session')->unsParameter();
+?>
+
+<script language="JavaScript">
+function checkAll(ele) {
+     var checkboxes = document.getElementsByTagName('input');
+     if (ele.checked) {
+         for (var i = 0; i < checkboxes.length; i++) {
+             if (checkboxes[i].type == 'checkbox') {
+                 checkboxes[i].checked = true;
+             }
+         }
+     } else {
+         for (var i = 0; i < checkboxes.length; i++) {
+             console.log(i)
+             if (checkboxes[i].type == 'checkbox') {
+                 checkboxes[i].checked = false;
+             }
+         }
+     }
+ }
+</script>

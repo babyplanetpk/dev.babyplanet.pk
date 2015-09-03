@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <brandcsv_adminhtml_bybrandcsv_index>
+        <reference name="content">
+           <block type="core/template" name="brandcsv" template="brandcsv/bybrandcsv.phtml" />
+        </reference>
+    </brandcsv_adminhtml_bybrandcsv_index>
+    <brandcsv_adminhtml_bybrandcsv_brandcsv>
+        <reference name="content">
+           <block type="core/template" name="brandcsv" template="brandcsv/bybrandcsv.phtml" />
+        </reference>
+    </brandcsv_adminhtml_bybrandcsv_brandcsv>
+    <brandcsv_adminhtml_bybrandcsv_brandcsvselectedorders>
+        <reference name="content">
+           <block type="core/template" name="brandcsv" template="brandcsv/bybrandcsv.phtml" />
+        </reference>
+    </brandcsv_adminhtml_bybrandcsv_brandcsvselectedorders>
+    <brandcsv_adminhtml_generalcsv_index>
+        <reference name="content">
+           <block type="core/template" name="brandcsv" template="brandcsv/generalcsv.phtml" />
+        </reference>
+    </brandcsv_adminhtml_generalcsv_index>
+    <brandcsv_adminhtml_generalcsv_brandcsv>
+        <reference name="content">
+           <block type="core/template" name="brandcsv" template="brandcsv/generalcsv.phtml" />
+        </reference>
+    </brandcsv_adminhtml_generalcsv_brandcsv>
+
+</layout>

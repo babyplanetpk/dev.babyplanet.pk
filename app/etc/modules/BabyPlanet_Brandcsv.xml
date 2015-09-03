@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <config>
     <modules>
-        <BabyPlanet_Performa>
+        <BabyPlanet_Brandcsv>
             <active>true</active>
             <codePool>local</codePool>
-        </BabyPlanet_Performa>
+        </BabyPlanet_Brandcsv>
     </modules>
 </config>

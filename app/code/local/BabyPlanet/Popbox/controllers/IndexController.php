@@ -6,8 +6,11 @@ class Babyplanet_Popbox_IndexController extends Mage_Core_Controller_Front_Actio
 		$arg = $this->getRequest()->getParam('which');
 		$model = Mage::getModel('popbox/popbox');
 		$popup = $model->load($arg, 'title');
-		$content = $popup->getData('content');
-		echo $content;
+		$status = $popup->getData('status');
+		if ($status) {
+			$content = $popup->getData('content');
+			echo $content;
+		}
             //$this->loadLayout();
             //$this->renderLayout();
     }

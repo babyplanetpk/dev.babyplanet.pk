@@ -1,28 +1,5 @@
 <?xml version="1.0"?>
 <config>
-    <menu>
-        <popbox module="popbox">
-            <title>BabyPlanet</title>
-            <sort_order>71</sort_order>               
-            <children>
-		<item module="popbox">
-                    <title>Popup</title>
-                    <sort_order>0</sort_order>
-                    <action>popbox/adminhtml_popbox</action>
-                </item>
-		<subitem module="popbox">
-                    <title>Leopord Performa</title>
-                    <sort_order>5</sort_order>
-                    <action>popbox/adminhtml_popbox</action>
-                </subitem>
-                <items module="popbox">
-                    <title>Export Orders</title>
-                    <sort_order>0</sort_order>
-                    <action>popbox/adminhtml_popbox</action>
-                </items>
-            </children>
-        </popbox>
-    </menu>
     <acl>
         <resources>
             <all>

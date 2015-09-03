@@ -42,8 +42,8 @@
                 <connection>
                     <host><![CDATA[localhost]]></host>
                     <username><![CDATA[root]]></username>
-                    <password><![CDATA[Morphie5]]></password>
-                    <dbname><![CDATA[dev_beta_babyplanet]]></dbname>
+                    <password><![CDATA[4328854:)]]></password>
+                    <dbname><![CDATA[babyplanet]]></dbname>
                     <initStatements><![CDATA[SET NAMES utf8]]></initStatements>
                     <model><![CDATA[mysql4]]></model>
                     <type><![CDATA[pdo_mysql]]></type>

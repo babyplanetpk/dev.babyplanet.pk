@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <performa module="performa">
+            <title>BabyPlanet</title>
+            <sort_order>73</sort_order>               
+            <children>
+		<subitem module="performa">
+                    <title>Leopord Performa</title>
+                    <sort_order>3</sort_order>
+                    <action>performa/adminhtml_performa</action>
+                </subitem>
+		<items module="performa">
+                    <title>Manage PopBox</title>
+                    <sort_order>4</sort_order>
+                    <action>popbox/adminhtml_popbox</action>
+                </items>
+		<item module="performa">
+                    <title>Export Orders</title>
+                    <sort_order>5</sort_order>
+		    <children>
+			<subitem1 module="performa">
+		            <title>Export by Brand</title>
+		            <sort_order>1</sort_order>
+		            <action>brandcsv/adminhtml_bybrandcsv</action>
+		        </subitem1>
+			<subitem2 module="performa">
+		            <title>General Export</title>
+		            <sort_order>2</sort_order>
+		            <action>brandcsv/adminhtml_generalcsv</action>
+		        </subitem2>
+		    </children>
+                </item>
+            </children>
+        </performa>
+    </menu>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <performa>
+                        <title>Performa Module</title>
+                        <sort_order>200</sort_order>
+                    </performa>
+                </children>
+            </admin>
+        </resources>   
+    </acl>
+    <layout>
+        <updates>
+            <performa>
+                <file>performa.xml</file>
+            </performa>
+        </updates>
+    </layout>
+</config>

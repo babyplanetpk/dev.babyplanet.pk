@@ -1,0 +1,118 @@
+<style>
+table, th, td {border:1px solid black; border-collapse:collapse; font-family: arial; font-size:12px; padding:10px 20px;text-align:center; text-transform:uppercase;}
+#buttons {padding-top:10px; text-align:center;}
+.item {border:1px solid; float:left; margin:1px; padding:0 5px; width:140px;}
+input[type="text"] {border-width:0; margin:0; outline:0 none; padding:2px; width:125px;}
+</style>
+
+<?php
+
+	$parameter = Mage::getSingleton('core/session')->getParameter();
+	
+	if($parameter == 'first') {
+		?>
+           <form id='contactForm' method='post' action="<?php echo Mage::helper("adminhtml")->getUrl("*/*/performa")?>">
+				<input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />  
+                <input type="date" name="from" min="2014-01-01" max="<?php echo date('Y-m-d'); ?>">
+                <input type="date" name="to" min="2014-01-01" max="<?php echo date('Y-m-d'); ?>">
+                <select id="status" name="status" class="blue">
+                	<option value="pending">Pending</option>
+                	<option value="process">Process</option>
+                	<option value="both">Both</option>
+                	<option value="all">All</option>
+                </select>
+                <button type="submit">Next </button>
+           </form>
+		<?php
+	} elseif ($parameter == 'second') {
+		
+		$count = 1;
+		$orderData = Mage::registry('orderData');	
+		?>
+	        <form id='contactForm' method='post' action="<?php echo Mage::helper("adminhtml")->getUrl("*/*/performaSelectedOrders")?>">
+	        <div class="single">
+	        	<div class="item">Order ID</div>
+	        	<div class="item">Customer Name</div>
+	        	<div class="item">COD</div>
+	        	<div class="item">Parcel Weight</div>
+	        	<div class="item">Addrsss</div>
+	        	<div class="item">City</div>
+	        	<div class="item">Phone</div>
+	        	<div class="item">Email</div>
+	        </div>
+	        <?php foreach ($orderData as $item) { ?>
+
+				<div class="single">
+		        	<div class="item">
+				<input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
+	        	    	<input type="checkbox" name="id[<?php echo $count ?>]" id="a-<?php echo $count ?>" value="<?php echo $item['id'] ?>" />
+	    	        	<label for="a-<?php echo $count ?>"><?php echo $item['id'] ?></label>
+	            	</div>
+		        	<div class="item">
+	        	    	<input type="text" name="name[<?php echo $count ?>]" value="<?php echo $item['customer'] ?>" />
+	            	</div>
+		        	<div class="item">
+	        	    	<input type="text" name="price[<?php echo $count ?>]" value="<?php echo substr($item['price'],0,-5) ?>" />
+	            	</div>
+		        	<div class="item">
+	        	    	<input type="text" name="weight[<?php echo $count ?>]" value="<?php echo $item['weight'] ?>" />
+	            	</div>
+		        	<div class="item">
+	        	    	<input type="text" name="address[<?php echo $count ?>]" value="<?php echo $item['address'] ?>" />
+	            	</div>
+		        	<div class="item">
+	        	    	<input type="text" name="city[<?php echo $count ?>]" value="<?php echo $item['city'] ?>" />
+	            	</div>
+		        	<div class="item">
+	        	    	<input type="text" name="phone[<?php echo $count ?>]" value="<?php echo $item['phone'] ?>" />
+	            	</div>
+		        	<div class="item">
+	        	    	<input type="text" name="email[<?php echo $count ?>]" value="<?php echo $item['email'] ?>" />
+	            	</div>
+            	</div>
+            	<div class="clear"></div>
+
+            	<?php $count++ ?>
+			<?php } ?>
+	            <button type="submit">Book Packets</button>
+    	    </form>
+		
+		<?php
+	
+	} elseif ($parameter == 'third') {
+
+		$performa = Mage::registry('performa');	
+
+		echo '<table>';
+			echo '<tr>';
+				echo '<th> Order ID </th>';
+				echo '<th> Customer Name </th>';
+				echo '<th> Tracking ID </th>';
+				echo '<th> Slip Download Link </th>';
+			echo '</tr>';
+
+		foreach ($performa as $single) {
+
+			echo '<tr>';
+			echo '<td>' . $single['id'] . '</td>';
+			echo '<td>' . $single['customer'] . '</td>';
+
+			if ( $single['error'] == 'none' ) {
+
+				echo '<td>' . $single['tracking'] . '</td>';
+				echo '<td><a href="' . $single['link'] . '" download> Download </a> </td>';
+			} elseif ($single['error'] == 'mismatch') {
+
+				echo '<td colspan="2"> City Name Mismatched. </td>';
+			} else {
+						
+				echo '<td colspan="2">' . $single['error'] . '</td>';
+			}
+
+				echo '</tr>';
+		}
+		echo '</table>';
+	}
+
+	Mage::getSingleton('core/session')->unsParameter();
+?>

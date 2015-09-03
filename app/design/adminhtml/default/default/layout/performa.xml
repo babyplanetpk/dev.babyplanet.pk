@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <performa_adminhtml_performa_index>
+        <reference name="content">
+           <block type="core/template" name="performa" template="performa/performa.phtml" />
+        </reference>
+    </performa_adminhtml_performa_index>
+    <performa_adminhtml_performa_performa>
+        <reference name="content">
+           <block type="core/template" name="performa" template="performa/performa.phtml" />
+        </reference>
+    </performa_adminhtml_performa_performa>
+    <performa_adminhtml_performa_performaselectedorders>
+        <reference name="content">
+           <block type="core/template" name="performa" template="performa/performa.phtml" />
+        </reference>
+    </performa_adminhtml_performa_performaselectedorders>
+</layout>

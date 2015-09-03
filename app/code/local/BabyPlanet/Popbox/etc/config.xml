@@ -35,19 +35,6 @@
         </routers>
     </admin>
     <adminhtml>
-        <menu>
-            <popbox module="popbox">
-                <title>BabyPlanet</title>
-                <sort_order>71</sort_order>               
-                <children>
-                    <items module="popbox">
-                        <title>Manage Items</title>
-                        <sort_order>1</sort_order>
-                        <action>popbox/adminhtml_popbox</action>
-                    </items>
-                </children>
-            </popbox>
-        </menu>
         <acl>
             <resources>
                 <all>

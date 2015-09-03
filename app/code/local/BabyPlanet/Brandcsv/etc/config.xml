@@ -1,19 +1,19 @@
 <?xml version="1.0"?>
 <config>
     <modules>
-        <BabyPlanet_Performa>
+        <BabyPlanet_Brandcsv>
             <version>0.1.0</version>
-        </BabyPlanet_Performa>
+        </BabyPlanet_Brandcsv>
     </modules>
     <admin>
         <routers>
-            <performa>
+            <brandcsv>
                 <use>admin</use>
                 <args>
-                    <module>BabyPlanet_Performa</module>
-                    <frontName>performa</frontName>
+                    <module>BabyPlanet_Brandcsv</module>
+                    <frontName>brandcsv</frontName>
                 </args>
-            </performa>
+            </brandcsv>
         </routers>
     </admin>
     <adminhtml>
@@ -24,27 +24,27 @@
                 </all>
                 <admin>
                     <children>
-                        <performa>
-                            <title>Performa Module</title>
+                        <brandcsv>
+                            <title>Brandcsv Module</title>
                             <sort_order>200</sort_order>
-                        </performa>
+                        </brandcsv>
                     </children>
                 </admin>
             </resources>   
         </acl>
         <layout>
             <updates>
-                <performa>
-                    <file>performa.xml</file>
-                </performa>
+                <brandcsv>
+                    <file>brandcsv.xml</file>
+                </brandcsv>
             </updates>
         </layout>
     </adminhtml>   
     <global>
         <helpers>
-            <performa>
-                <class>BabyPlanet_Performa_Helper</class>
-            </performa>
+            <brandcsv>
+                <class>BabyPlanet_Brandcsv_Helper</class>
+            </brandcsv>
         </helpers>
     </global>
 </config>

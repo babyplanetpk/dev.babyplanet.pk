@@ -92,7 +92,7 @@ function checkCookie( which ) {
     var popup = getCookie("BabyPlanet_Cookie");
     if (popup != "") {
         //alert("Welcome again " + popup);
-        return false;
+        return true;
     } else {
        popup = which;
        if (popup != "" && popup != null) {
